@@ -1,6 +1,6 @@
 # PhIP-Flow pipeline Template/Example
 
-In this template we provide a template/example outlining the details of running the PhIP-Flow pipeline to obtain the alignments for a phip-seq experiment -- which is organized into the [xarray](http://xarray.pydata.org/en/stable/) format needed to run analysis using [phippery](https://github.com/matsengrp/phippery)
+In this template we provide a template/example outlining the details of running the [PhIP-Flow](https://github.com/matsengrp/phip-flow) pipeline to obtain the alignments for a phip-seq experiment -- which is organized into the [xarray](http://xarray.pydata.org/en/stable/) format needed to run analysis using [phippery](https://github.com/matsengrp/phippery)
 
 # Getting started
 
@@ -13,7 +13,7 @@ Docker version 20.10.1, build 831ebea
 nextflow version 20.04.1.5335
 ```
 
-Next, you will need to clone this repository (or use it's template to fork), making sure to grab the [phip-flow](https://github.com/matsengrp/phippery) pipeline submodule 
+Next, you will need to clone this repository (or use it's template to fork), making sure to grab the [phip-flow](https://github.com/matsengrp/phip-flow) pipeline submodule 
 
 ```bash
 git clone git@github.com:matsengrp/phip-flow-template.git --recurse-submodules
