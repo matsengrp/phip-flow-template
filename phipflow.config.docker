@@ -23,7 +23,7 @@ params{
     // Bowtie kwargs you wish to include see 
     // http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#the-bowtie2-aligner
     // for details about alignment with Bowtie 2
-    align_args = '--trim3 8 --threads 2 --tryhard --nomaqround --norc --best --sam --quiet'
+    align_args = '--trim3 8 --threads 2 --tryhard --nomaqround --norc --best --quiet'
 
     
     // ##### Sample Table #####

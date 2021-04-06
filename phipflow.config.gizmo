@@ -1,17 +1,17 @@
-
+    
 // PIPELINE KNOBS
 params{
 
 
     // ##### Dataset Name Prefix #####
     // Where you want all the files and intermediate file symlinks to go
-    phip_data_dir = '03-23-21'
+    phip_data_dir = 'my_outputfiles'
 
 
     // ##### Dataset Name Prefix #####
     // what you would like to name the .phip 
     // pickle dump'd xarray containing all info
-    dataset_prefix = '03-23-21-trim32'
+    dataset_prefix = 'simulation-run'
 
 
     // ##### Alignment Tool #####
@@ -23,9 +23,9 @@ params{
     // Bowtie kwargs you wish to include see 
     // http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#the-bowtie2-aligner
     // for details about alignment with Bowtie 2
-    align_args = '--trim3 32 --threads 28'
+    align_args = '--trim3 8 --threads 2 --tryhard --nomaqround --norc --best --quiet'
 
-    
+
     // ##### Sample Table #####
     // csv defining all sample metadata
     // See README for Details
