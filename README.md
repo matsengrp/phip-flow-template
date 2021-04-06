@@ -1,6 +1,6 @@
 # PhIP-Flow pipeline Template/Example
 
-In this template we provide a template/example outlining the details of running the PhIP-Flow pipeline to obtain the alignments for a phip-seq experiment -- which is organized into the xarray-format needed to run analysis using [phippery](https://github.com/matsengrp/phippery)
+In this template we provide a template/example outlining the details of running the PhIP-Flow pipeline to obtain the alignments for a phip-seq experiment -- which is organized into the [xarray](http://xarray.pydata.org/en/stable/) format needed to run analysis using [phippery](https://github.com/matsengrp/phippery)
 
 # Getting started
 
@@ -26,7 +26,49 @@ Nextflow allows for the user to avoid mangling installs for all the various depe
 nextflow -C phipflow.config.docker run phip-flow/PhIP-Flow.nf
 ```
 
-Where `phipflow.config.docker` are your configurations
+Where `phipflow.config.docker` are your configurations. This will produce something like
+
+```bash
+(base) ubuntu template-test/phip-flow-template ‹master*› » ./run_phip_flow.sh
+N E X T F L O W  ~  version 20.04.1
+Launching `phip-flow/PhIP-Flow.nf` [romantic_bohr] - revision: 44d57f9950
+executor >  local (39)
+[76/c6613f] process > generate_fasta_reference (1) [100%] 1 of 1 ✔
+[01/2aaf25] process > generate_index (1)           [100%] 1 of 1 ✔
+[13/e3f044] process > short_read_alignment (12)    [100%] 12 of 12 ✔
+[a3/c87e4d] process > sam_to_stats (12)            [100%] 12 of 12 ✔
+[2e/95d787] process > sam_to_counts (12)           [100%] 12 of 12 ✔
+[51/5f9134] process > collect_phip_data (1)        [100%] 1 of 1 ✔
+
+10.43user 3.81system 0:51.48elapsed 27%CPU (0avgtext+0avgdata 401948maxresident)k
+0inputs+4536outputs (3major+807788minor)pagefaults 0swaps
+```
+
+and produce all intermediate file links and corresponding counts [xarray](http://xarray.pydata.org/en/stable/) dataset organized with the sample and peptide metadata tables.
+
+If you have the [phippery](https://github.com/matsengrp/phippery) python package installed, you can take a look at the results of the example run
+
+```python
+>>> import phippery
+>>> ds = phippery.load("simulation-run.phip")
+>>> ds.counts
+<xarray.DataArray 'counts' (peptide_id: 10, sample_id: 12)>
+array([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]])
+Coordinates:
+  * sample_id   (sample_id) int64 0 1 2 3 4 5 6 7 8 9 10 11
+  * peptide_id  (peptide_id) int64 0 1 2 3 4 5 6 7 8 9
+```
+
+For more about using the python package to query the dataset and analyze the data using a range of methods, see the <TODO>
 
 # Compute process configurations
 
