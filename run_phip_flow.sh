@@ -9,4 +9,4 @@ set -e
 
 /usr/bin/time nextflow  \
     -C phipflow.config.docker \
-    run ../phip-flow/PhIP-Flow.nf
+    run PhIP-Flow.nf
