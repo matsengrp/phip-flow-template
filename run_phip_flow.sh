@@ -1,12 +1,12 @@
 #!/bin/bash
 
 set -e
-#source /app/lmod/lmod/init/profile
+source /app/lmod/lmod/init/profile
 #
-#module load nextflow
-#module load Singularity
-#export PATH=$SINGULARITYROOT/bin/:$PATH
+module load nextflow
+module load Singularity
+export PATH=$SINGULARITYROOT/bin/:$PATH
 
 /usr/bin/time nextflow  \
-    -C phipflow.config.docker \
-    run PhIP-Flow.nf
+    -C phipflow.config.gizmo \
+    run phip-flow/PhIP-Flow.nf
