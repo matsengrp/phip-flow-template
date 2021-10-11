@@ -1,15 +1,15 @@
 #!/bin/bash
 
 set -e
-source /app/lmod/lmod/init/profile
-
-module load nextflow
-module load Singularity
-export PATH=$SINGULARITYROOT/bin/:$PATH
+#source /app/lmod/lmod/init/profile
+#
+#module load nextflow
+#module load Singularity
+#export PATH=$SINGULARITYROOT/bin/:$PATH
 
 /usr/bin/time nextflow  \
-    -C phipflow.config.bowtie \
-    run ../../../../phip-flow/PhIP-Flow.nf \
-    -with-report output_local/nextflow_report.html \
-    -work-dir /fh/scratch/delete30/matsen_e/ksung2/temp/work/ \
+    -C phipflow_docker.config \
+    run ../phip-flow/PhIP-Flow.nf \
+    -with-report ./output/nextflow_report.html \
+    -work-dir ./output/work/ \
     -resume
